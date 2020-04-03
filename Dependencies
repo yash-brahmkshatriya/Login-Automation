@@ -1,0 +1,7 @@
+This python has following dependencies:
+-NumPy
+-OpenCV
+-Selenium
+-Pickle
+-Pillow
+-Tkinter
