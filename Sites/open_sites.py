@@ -6,8 +6,8 @@ import time
 def openCF(details):
     details=details.split(' ')
     id_=details[0]
-    pwd=details[1]
-    driver=wbd.Chrome("C:/Users/Dilip/Downloads/chromedriver.exe")
+    pwd_=details[1]
+    driver=wbd.Chrome("chromedriver.exe")
     driver.get('https://codeforces.com')
     time.sleep(2)
     elem=driver.find_element_by_xpath('//*[@id="header"]/div[2]/div[2]/a[1]')
@@ -24,8 +24,8 @@ def openCF(details):
 def openCC(details):
     details=details.split(' ')
     id_=details[0]
-    pwd=details[1]
-    driver=wbd.Chrome("C:/Users/Dilip/Downloads/chromedriver.exe")
+    pwd_=details[1]
+    driver=wbd.Chrome("chromedriver.exe")
     driver.get('https://codechef.com')
     time.sleep(2)
     elem=driver.find_element_by_xpath('//*[@id="edit-name"]')
@@ -45,8 +45,8 @@ def openCC(details):
 def openSPOJ(details):
     details=details.split(' ')
     id_=details[0]
-    pwd=details[1]
-    driver=wbd.Chrome("C:/Users/Dilip/Downloads/chromedriver.exe")
+    pwd_=details[1]
+    driver=wbd.Chrome("chromedriver.exe")
     driver.get('https://spoj.com')
     time.sleep(2)
     elem=driver.find_element_by_xpath('//*[@id="menu"]/div/nav/ul/li[6]/a')

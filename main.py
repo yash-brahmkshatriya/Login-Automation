@@ -32,7 +32,6 @@ if auth:
 elif newusr:
     capture_new_user.setup(usrname)
     captured = capture_new_user.capture_photos()
-    # exec('C:/Users/Dilip/Yash Codes/Python/Login_Automation/Image_Recog/faces_training.py')
     print('scanned')
     faces_training.trainusrs()
     print('Trained')

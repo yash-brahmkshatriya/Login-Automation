@@ -156,7 +156,7 @@ def show_sites(usrname, det):
     # namelbl = Label(site_window,text=usrname).grid(row=1,column=1,padx=(10,10),pady=(10,10))
     # Button(site_window,text='Logout',command=site_window.destroy).grid(row=1,column=2,padx=(30,10),pady=(10,10))
     # site_window.mainloop()
-    path_to_logo = os.path.abspath(__file__)
+    path_to_logo = os.path.dirname(os.path.abspath(__file__))
     site_window = Tk()
     site_window.title('Sites')
     site_window.geometry('400x140')
@@ -169,9 +169,9 @@ def show_sites(usrname, det):
     # codeChef
     photo1 = PhotoImage(file=str(path_to_logo+'/logocodechef.png'))
     photoimage1 = photo1.subsample(3, 3)
-    Button(site_window, text="Codechef", image=photoimage1, padx=8, compound=LEFT,command=lambda:open_sites.openCF(det['codechef'])).grid(row=2, column=1, padx=(0, 0),pady=(10, 10))
+    Button(site_window, text="Codechef", image=photoimage1, padx=8, compound=LEFT,command=lambda:open_sites.openCC(det['codechef'])).grid(row=2, column=1, padx=(0, 0),pady=(10, 10))
     # spoj
     photo3 = PhotoImage(file=str(path_to_logo+'/logospoj.png'))
     photoimage3 = photo3.subsample(3, 3)
-    Button(site_window, text="SPOJ", image=photoimage3, padx=15, compound=LEFT,command=lambda:open_sites.openCF(det['spoj'])).grid(row=2, column=3, padx=(0, 0),pady=(10, 10))
+    Button(site_window, text="SPOJ", image=photoimage3, padx=15, compound=LEFT,command=lambda:open_sites.openSPOJ(det['spoj'])).grid(row=2, column=3, padx=(0, 0),pady=(10, 10))
     site_window.mainloop()

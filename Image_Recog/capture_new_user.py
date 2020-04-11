@@ -3,8 +3,11 @@ import cv2
 import os
 import time
 
-img_dir = 'C:/Users/Dilip/Yash Codes/Python/Login_Automation/Image_Recog/Images'
-face_cascade = cv2.CascadeClassifier('C:/Users/Dilip/Yash Codes/Python/Login_Automation/Image_Recog/cascades/data/haarcascade_frontalface_default.xml')
+curr_dir = os.path.dirname(os.path.abspath(__file__))
+# img_dir = 'C:/Users/Dilip/Yash Codes/Python/Login_Automation/Image_Recog/Images'
+img_dir= curr_dir.join('Images')
+# face_cascade = cv2.CascadeClassifier('C:/Users/Dilip/Yash Codes/Python/Login_Automation/Image_Recog/cascades/data/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(str(curr_dir + '/cascades/data/haarcascade_frontalface_default.xml'))
 SCAN_SUCCESS = False
 
 def setup(usrname):
