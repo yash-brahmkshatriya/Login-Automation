@@ -55,7 +55,7 @@ def trainusrs():
                     labels_to_faces.append(curr_face_id)
 
     #save face_id with its label (dictionary) in a pickle file
-    with open(str(CURR_DIR+"/face_labels.pickle","wb")) as fw:
+    with open(str(CURR_DIR+"/face_labels.pickle"),"wb") as fw:
         pickle.dump(face_ids,fw)
 
     # print('len of face ids = {}'.format(len(faces_to_train)))

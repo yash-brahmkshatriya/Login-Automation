@@ -14,6 +14,7 @@ def loadusrs():
     with open(str(path_to_users + '/users.pickle'),"rb") as fr:
         users_det = pickle.load(fr)
 loadusrs()
+
 auth, newusr, usrname = window.isAuth()
 success = False
 captured = False

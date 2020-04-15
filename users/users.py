@@ -10,16 +10,6 @@ users={
         "codeforces":'kcfid kcfpwd',
         "codechef":'kccid kccpwd',
         "spoj":'kspojid kspojpwd'
-    },
-    "chhaya":{
-        "codeforces":'ccfid ccfpwd',
-        "codechef":'cccid cccpwd',
-        "spoj":'cspojid cspojpwd'
-    },
-    "dilip":{
-        "codeforces":'dcfid dcfpwd',
-        "codechef":'dccid dccpwd',
-        "spoj":'dspojid dspojpwd'
     }
 }
 

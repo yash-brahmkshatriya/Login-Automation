@@ -13,6 +13,7 @@ path_to_users = ''
 
 usernames={}
 users_det={}
+
 def setAuth(login_window):
     global AUTH
     AUTH=True
@@ -20,16 +21,22 @@ def setAuth(login_window):
 def setUSER(val):
     global USER
     USER=val
-def add_user(name_,details_,wind):
+def add_user(name_,details_,wind,id_cf,pwd_cf,id_cc,pwd_cc,id_spoj,pwd_spoj):
     global NEW_USR
     global USER
     global path_to_users
+    
     wind.destroy()
     NEW_USR = True
     USER = name_
-    usernames[name_]=details_
+    
+    details_["codeforces"]=str(id_cf.get()+' '+pwd_cf.get())
+    details_["codechef"]=str(id_cc.get()+' '+pwd_cc.get())
+    details_["spoj"]=str(id_spoj.get()+' '+pwd_spoj.get())
+    
+    users_det[name_]=details_
     with open(str(path_to_users+"/users.pickle"),"wb") as fw:
-        pickle.dump(usernames,fw)
+        pickle.dump(users_det,fw)
     print('User added')
 def login_fun():
     global AUTH
@@ -60,10 +67,6 @@ def signup_fun():
     nam=Entry(signup_window,textvariable=n11).grid(row=2,column=2,pady=(10,0))
     enter=Button(signup_window,text="Enter",command=lambda:get_signup_details(signup_window,n11),width=10).grid(row=3,column=2,padx=(15,20),pady=(10,10))
 def get_signup_details(signup_window,usr):
-    def print_det(usr):
-        # print('ID ={}'.format(id_.get()))
-        # print('PWD ={}'.format(pwd_.get()))
-        print('User added')
     if usr.get().lower() in usernames:
         print('User exists')
         return
@@ -71,6 +74,7 @@ def get_signup_details(signup_window,usr):
     det_window=Tk()
     det_window.title('Data Entry')
     det_window.geometry('500x500')
+    
     id_cf=StringVar()
     pwd_cf=StringVar()
     id_cc=StringVar()
@@ -80,24 +84,24 @@ def get_signup_details(signup_window,usr):
     details_={}
     #Taking CodeForces
     Label(det_window, text="CF Id:").grid(row=1,column=1,padx=(60,10),pady=(10,10))
-    entry=Entry(det_window,textvariable=id_cf).grid(row=1,column=2,padx=(60,10),pady=(10,10))
+    entrycfi=Entry(det_window,textvariable=id_cf).grid(row=1,column=2,padx=(60,10),pady=(10,10))
     Label(det_window, text="CF Pwd:").grid(row=2,column=1,padx=(60,10),pady=(10,10))
-    entry=Entry(det_window,textvariable=pwd_cf).grid(row=2,column=2,padx=(60,10),pady=(10,10))
-    details_["codeforces"]=id_cf.get()+' '+pwd_cf.get()
+    entrycfp=Entry(det_window,textvariable=pwd_cf).grid(row=2,column=2,padx=(60,10),pady=(10,10))
+    # details_["codeforces"]=id_cf.get()+' '+pwd_cf.get()
     #Taking CodeChef
     Label(det_window, text="CC Id:").grid(row=3,column=1,padx=(60,10),pady=(10,10))
-    entry=Entry(det_window,textvariable=id_cc).grid(row=3,column=2,padx=(60,10),pady=(10,10))
+    entrycci=Entry(det_window,textvariable=id_cc).grid(row=3,column=2,padx=(60,10),pady=(10,10))
     Label(det_window, text="CC Pwd:").grid(row=4,column=1,padx=(60,10),pady=(10,10))
-    entry=Entry(det_window,textvariable=pwd_cc).grid(row=4,column=2,padx=(60,10),pady=(10,10))
-    details_["codechef"]=id_cc.get()+' '+pwd_cc.get()
+    entryccp=Entry(det_window,textvariable=pwd_cc).grid(row=4,column=2,padx=(60,10),pady=(10,10))
+    # details_["codechef"]=id_cc.get()+' '+pwd_cc.get()
     #Taking SPOJ
     Label(det_window, text="SPOJ Id:").grid(row=5,column=1,padx=(60,10),pady=(10,10))
-    entry=Entry(det_window,textvariable=id_spoj).grid(row=5,column=2,padx=(60,10),pady=(10,10))
+    entryspoji=Entry(det_window,textvariable=id_spoj).grid(row=5,column=2,padx=(60,10),pady=(10,10))
     Label(det_window, text="SPOJ Pwd:").grid(row=6,column=1,padx=(60,10),pady=(10,10))
-    entry=Entry(det_window,textvariable=pwd_spoj).grid(row=6,column=2,padx=(60,10),pady=(10,10))
-    details_["spoj"]=id_spoj.get()+' '+pwd_spoj.get()
+    entryspojp=Entry(det_window,textvariable=pwd_spoj).grid(row=6,column=2,padx=(60,10),pady=(10,10))
+    # details_["spoj"]=id_spoj.get()+' '+pwd_spoj.get()
 
-    sbt=Button(det_window,text="Submit",command=lambda:add_user(name_=usr.get(),details_=details_,wind=det_window),width=15).grid(row=9,column=2,padx=(40,0),pady=(20,0))
+    sbt=Button(det_window,text="Submit",command=lambda:add_user(name_=usr.get(),details_=details_,wind=det_window,id_cf=id_cf,pwd_cf=pwd_cf,id_cc=id_cc,pwd_cc=pwd_cc,id_spoj=id_spoj,pwd_spoj=pwd_spoj),width=15).grid(row=9,column=2,padx=(40,0),pady=(20,0))
 
 def setup():
     global usernames
@@ -107,9 +111,8 @@ def setup():
     path_to_users = os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','users')
     with open(str(path_to_users+'/users.pickle'),"rb") as fr:
         users_det=pickle.load(fr)
-
     usernames=dict.fromkeys(users_det)
-
+    
     main_window.title("Login automation")
     # login_window.style=Style()
     # login_window.style.theme_use("default")
