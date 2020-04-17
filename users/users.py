@@ -2,9 +2,9 @@ import pickle
 
 users={
     "yash":{
-        "codeforces":'noob2831 codeforces@yahoo',
-        "codechef":'noob2831 Code@yahoo31',
-        "spoj":'yash_31 spoj@yash31'
+        "codeforces":'noob2831 cfpwd',
+        "codechef":'noob2831 ccpwd',
+        "spoj":'yash_31 spojpwd'
     },
     "keyur":{
         "codeforces":'kcfid kcfpwd',

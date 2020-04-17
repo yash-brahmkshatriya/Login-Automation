@@ -2,7 +2,6 @@ from selenium import webdriver as wbd
 from selenium.webdriver.common.keys import Keys
 import time
 
-# driver=wbd.Chrome("C:/Users/Dilip/Downloads/chromedriver.exe")
 def openCF(details):
     details=details.split(' ')
     id_=details[0]
@@ -59,8 +58,4 @@ def openSPOJ(details):
     elem.send_keys(pwd_)
     elem.send_keys(Keys.ENTER)
     time.sleep(10)
-        
     
-# openCC('yash3110','Codechef@yash31')
-# openCF('noob2831','codeforces@yahoo')
-# openSPOJ('yash_31','spoj@yash31')
